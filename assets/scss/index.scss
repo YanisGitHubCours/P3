@@ -1,0 +1,298 @@
+@import "global-scss.scss";
+@import "myColors.scss";
+
+
+/*MAIN*/
+
+main{
+    opacity: 0;
+    animation: appear 1s forwards ease;
+    animation-delay: 3s;
+    margin-top: 75px;
+}
+
+.loader{
+    &{
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        justify-content: center;
+        animation: disappear 0.5s forwards ease;
+        animation-delay: 2.8s;
+    }
+
+    .load{
+        &{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #000;
+            margin: 0 15px;
+            animation: jump infinite 0.3s alternate;
+        }
+        
+        &.l2{
+            animation-delay: 0.05s;
+        }
+        &.l3{
+            animation-delay: 0.1s;
+        }
+    }
+
+
+}
+
+.location{
+    &{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-size: 18px;
+        color: #383838;
+    }
+
+    p{
+        &{
+            padding: 0px 15px;
+        }
+        &::before{
+            content: "\f3c5";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: relative;
+            left: -15px;
+        }
+    }
+}
+
+.intro{
+    &{
+        background-color: $light-grey-color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px;
+    }
+    h2{
+        font-size: 1.7em;
+        margin-bottom: 20px;
+    }
+    p{
+        font-size: 1.1em;
+        margin-bottom: 20px;
+        font-family: "RobotoL";
+        color: rgb(84, 84, 84);
+    }
+
+    .button_explore{
+        color: white;
+        padding: 15px 20px; 
+        border-radius: 50px;
+        margin: 10px 0;
+        font-size: 1em;
+        letter-spacing: 0.3px;
+        background: rgb(255,121,218);
+        background: linear-gradient(160deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%);
+    }
+
+    .button_explore:hover{
+        background: linear-gradient(160deg, rgb(255, 77, 204) 0%, rgb(196, 85, 255) 100%);
+    }
+}
+
+.tuto{
+    &{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: 40px 20px;
+    }
+    h2{
+        margin-bottom: 20px;
+        font-size: 1.7em;
+    }
+
+    .step{
+        &{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            background-color: var(--light-grey-color);
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            
+        }
+
+        &::before{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8em;
+            position: absolute;
+            left: 0;
+            transform: translateX(-50%);
+            padding: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50px;
+            background-color: #9356DC;
+        }
+
+        @for $i from 2 through 4 {
+            $j: $i - 1;
+            &:nth-child(#{$i}):before {
+                content: '#{$j}';
+            }
+        }
+
+        &:last-child{
+            &{
+                background-color: #9256dc1d;
+            }
+            i{
+                color: $primary-color;
+            }
+        }
+
+        i{
+            position: absolute;
+            left: 40px;
+            font-size: 1.2em;
+            color: grey;
+        }
+
+
+    }
+}
+
+.restaurants{
+    &{
+        display: flex;
+        flex-direction: column;
+        padding: 50px 20px;
+        background-color: $light-grey-color;
+    }
+
+    h2{
+        margin-bottom: 20px;
+        font-size: 1.7em;
+    }
+}
+
+.card_restaurant{
+    &{
+        background-color: white;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    }
+
+    &:not(:last-child){
+        margin-bottom: 20px;
+    }
+
+    img{
+        object-fit: cover;
+        width: 100%;
+        height: 160px;
+    }
+    .new{
+        position: absolute;
+        z-index: 50;
+        background-color: rgb(157, 251, 219);
+        border-radius: 2px;
+        padding:5px 10px;
+        color: rgb(46, 169, 128);
+        top: 10px;
+        right: 10px;
+    }
+
+    .details_card{
+        &{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding:15px;
+        }
+
+        span{
+
+            &{
+                font-size: 1.7em;
+                margin-right: 20px;
+            }
+    
+            i{
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke-color: #000;
+                -webkit-text-stroke-width: 1px;
+            }
+    
+            &:hover i{
+                background: -webkit-linear-gradient(80deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-stroke-width: 0px;
+                -webkit-text-fill-color: transparent;
+                cursor: pointer;
+            }
+    
+        }
+    }
+}
+
+@keyframes appear{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes jump{
+    100%{
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes disappear{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .intro{
+        border-radius: 30px 30px 0 0;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px){
+    main{
+        margin: 75px 10% 0 10%;
+    }
+}
+
+@media screen and (min-width: 992px){
+    main{
+        margin: 75px 30% 0 30%;
+    }
+}
