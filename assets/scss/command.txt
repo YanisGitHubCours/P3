@@ -1,0 +1,2 @@
+.\dart-sass\sass .\scss\index.scss .\build\index.css --watch
+.\dart-sass\sass .\scss\pages.scss .\build\pages.css --watch 
